@@ -16,7 +16,7 @@ if ! command -v ansible &> /dev/null; then
     sudo apt install -y ansible
 else
     echo "Ansible уже установлен."
-fi
+fiansible-playbook -l <Alias хоста/группы> -i hosts.txt <playbook>.yml
 
 # Запуск playbook
 echo "Запуск playbook..."

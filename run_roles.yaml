@@ -1,0 +1,7 @@
+---
+- name: Set up development environment for students
+  hosts: all
+  become: yes
+  roles:
+    - role: student
+    - role: common_soft
