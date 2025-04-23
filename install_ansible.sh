@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PLAYBOOK_PATH="ansible_build.yml"
+PLAYBOOK_PATH="run_roles.yaml"
 INVENTORY_FILE="inventory.ini"
 INSTALL_PATH="/home/$(whoami)/ansible"
 INSTALL_USER=$(whoami)
@@ -16,10 +16,10 @@ if ! command -v ansible &> /dev/null; then
     sudo apt install -y ansible
 else
     echo "Ansible уже установлен."
-fiansible-playbook -l <Alias хоста/группы> -i hosts.txt <playbook>.yml
+fi
+
+# fiansible-playbook -l <Alias хоста/группы> -i hosts.txt <playbook>.yml
 
 # Запуск playbook
 echo "Запуск playbook..."
-#ansible-playbook -i "$INVENTORY_FILE" "$PLAYBOOK_PATH" --ask-become-pass --extra-vars "install_path=$INSTALL_PATH install_user=$INSTALL_USER debug_mode=true"
-
-echo "Скрипт завершен!"
+ansible-playbook -i "$INVENTORY_FILE" "$PLAYBOOK_PATH"  --extra-vars "install_path=$INSTALL_PATH install_user=$INSTALL_USER debug_mode=true"

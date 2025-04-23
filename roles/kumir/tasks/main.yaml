@@ -1,0 +1,16 @@
+---
+- name: Clone Kumir2
+  git:
+    repo: "https://git.niisi.ru/kumir/kumir2.git"
+    dest: "{{ install_path }}/kumir2"
+    clone: yes
+  register: kumir2_cloned
+
+- name: Compile, and install Kumir2
+  shell: |
+    cd {{ install_path }}/kumir2
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=Release .. -DUSE_QT=5
+    make 
+    sudo make install

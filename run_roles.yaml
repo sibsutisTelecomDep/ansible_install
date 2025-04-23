@@ -5,3 +5,4 @@
   roles:
     - role: student
     - role: common_soft
+    - role: kumir
