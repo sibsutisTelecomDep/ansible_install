@@ -22,4 +22,4 @@ fi
 
 # Запуск playbook
 echo "Запуск playbook..."
-ansible-playbook -i "$INVENTORY_FILE" "$PLAYBOOK_PATH"  --extra-vars "install_path=$INSTALL_PATH install_user=$INSTALL_USER debug_mode=true"
+ansible-playbook -i "$INVENTORY_FILE" "$PLAYBOOK_PATH" --extra-vars "install_path=$INSTALL_PATH install_user=$INSTALL_USER debug_mode=true"

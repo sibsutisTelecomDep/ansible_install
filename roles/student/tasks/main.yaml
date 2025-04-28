@@ -1,4 +1,8 @@
 ---
+# - name: Change ssh port to 8888
+#   set_fact:
+#     ansible_port: 8888
+
 - name: Ensure student group exists
   group:
     name: "{{ student_group }}"
