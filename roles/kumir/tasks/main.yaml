@@ -6,11 +6,41 @@
     clone: yes
   register: kumir2_cloned
 
+- name: Установка QT Kumir
+  apt:
+    name:
+    - git 
+    - build-essential 
+    - cmake 
+    - qtscript5-dev 
+    - libssl-dev 
+    - qttools5-dev 
+    - qttools5-dev-tools 
+    - qtmultimedia5-dev 
+    - libqt5svg5-dev 
+    - libqt5webkit5-dev 
+    - libsdl2-dev 
+    - libasound2 
+    - libxmu-dev 
+    - libxi-dev 
+    - freeglut3-dev 
+    - libasound2-dev 
+    - libjack-jackd2-dev 
+    - libxrandr-dev 
+    - libqt5xmlpatterns5-dev 
+    - libqt5xmlpatterns5 
+    - libqt5x11extras5-dev
+
+    state: present
+    update_cache: yes
 - name: Compile, and install Kumir2
   shell: |
     cd {{ install_path }}/kumir2
     mkdir build
     cd build
-    cmake -DCMAKE_BUILD_TYPE=Release .. -DUSE_QT=5
-    make 
+    cmake -DCMAKE_BUILD_TYPE=Release -DUSE_QT=5 ..
+    make -j16
     sudo make install
+    sudo ldconfig
+
+    

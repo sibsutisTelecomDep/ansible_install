@@ -2,8 +2,8 @@
 
 PLAYBOOK_PATH="run_roles.yaml"
 INVENTORY_FILE="inventory.ini"
-INSTALL_PATH="/home/$(whoami)/ansible"
-INSTALL_USER=$(whoami)
+INSTALL_PATH="/home/tsvs/ansible"
+INSTALL_USER=tsvs
 
 # Создание директории 
 echo "Создание директории ..."

@@ -6,6 +6,6 @@
     - role: student
     - role: common_soft
     - role: kumir
-    - role: database
+    # - role: database
     # - role: reboot
     # - role: spyder

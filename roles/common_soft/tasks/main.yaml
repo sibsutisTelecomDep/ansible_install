@@ -1,4 +1,11 @@
 ---
+- name: Update and upgrade apt packages
+  become: true
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+
 - name: Установка QT
   apt:
     name:
@@ -21,20 +28,6 @@
       - libqt5svg5-dev
       - libqt5x11extras5-dev
       - qtscript5-dev
-      # - libssl-dev
-      # - qttools5-dev 
-      # - qttools5-dev-tools 
-      # - qtmultimedia5-dev 
-      # - libqt5webkit5-dev 
-      # - libsdl2-dev 
-      # - libasound2 
-      # - libxmu-dev 
-      # - libxi-dev 
-      # - freeglut3-dev 
-      # - libasound2-dev 
-      # - libjack-jackd2-dev 
-      # - libxrandr-dev 
-      # - libqt5xmlpatterns5-dev 
     state: present
     update_cache: yes
 
@@ -102,24 +95,20 @@
     state: present
     update_cache: yes
 
-- name: Установка русской раскладки
-  apt:
-    name: 
-    - language-pack-ru
-    - language-pack-gnome-ru
-    - language-pack-kde-ru
-    - firefox-locale-ru
-    - libreoffice-l10n-ru 
-    - libreoffice-help-ru
-    - gimp-help-ru
-    - hunspell-ru
-    - mythes-ru
-    state: present
-    update_cache: yes
+# - name: Установка русской раскладки
+#   apt:
+#     name: 
+#     - language-pack-ru
+#     - language-pack-gnome-ru
+#     - language-pack-kde-ru
+#     - libreoffice-l10n-ru 
+#     - libreoffice-help-ru
+#     state: present
+#     update_cache: yes
 
-- name: Обновление языка
-  shell: |
-    sudo update-locale LANG=ru_RU.UTF-8
+# - name: Обновление языка
+#   shell: |
+#     sudo update-locale LANG=ru_RU.UTF-8
 
 
 
